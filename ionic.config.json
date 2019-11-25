@@ -1,5 +1,7 @@
 {
   "name": "Dialog-webView",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
