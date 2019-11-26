@@ -9,7 +9,7 @@ export class HomePage {
 
   constructor(private iab: InAppBrowser,public platform: Platform) { 
 
-    let webSite = "https://www.google.com";
+    let webSite = "http://192.241.144.151:8088/admin/view";
 
     platform.ready().then(() => {
 
