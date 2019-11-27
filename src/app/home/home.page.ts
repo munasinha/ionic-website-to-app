@@ -3,10 +3,9 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/
 import { Platform } from '@ionic/angular';
 
 @Component({
-  template: `
-  <p> Loading... </p>
-
-  `
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
 })
 export class HomePage {
 
