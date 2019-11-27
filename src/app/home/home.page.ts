@@ -1,27 +1,43 @@
 import { Component } from '@angular/core';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
 import { Platform } from '@ionic/angular';
 
 @Component({
-  template:"<p>loading ... </p>"
- })
+  template: `
+  <p> Loading... </p>
+
+  `
+})
 export class HomePage {
 
-  constructor(private iab: InAppBrowser,public platform: Platform) { 
+  options: InAppBrowserOptions = {
+    location: 'no',//Or 'no' 
+    hidden: 'no', //Or  'yes'
+    clearcache: 'yes',
+    clearsessioncache: 'yes',
+    zoom: 'no',//Android only ,shows browser zoom controls 
+    hardwareback: 'yes',
+    mediaPlaybackRequiresUserAction: 'no',
+    shouldPauseOnSuspend: 'no', //Android only 
+    //closebuttoncaption: 'Close', //iOS only
+    disallowoverscroll: 'no', //iOS only 
+    toolbar: 'no', //iOS only 
+    enableViewportScale: 'no', //iOS only 
+    allowInlineMediaPlayback: 'no',//iOS only 
+    presentationstyle: 'pagesheet',//iOS only 
+    fullscreen: 'yes',//Windows only    
+  };
+
+  constructor(private iab: InAppBrowser, public platform: Platform) {
 
     let webSite = "http://192.241.144.151:8088/admin/view";
 
     platform.ready().then(() => {
 
-      // const browser = this.iab.create('https://ionicframework.com/');
+      let target = "_self";
 
-      // browser.close();
+      this.iab.create(webSite, target);
 
-      let browser = this.iab.create( webSite,'_blank',{zoom:'no',location:'no'});
-     
-      browser.show();
-     
-      
     });
 
   }
